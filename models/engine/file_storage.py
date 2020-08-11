@@ -51,5 +51,8 @@ class FileStorage:
 
     def delete(self, obj=None):
         """Deletes abject if required"""
-        if obj in FileStorage.__objects:
-            del FileStorage.__objects[obj]
+        class_name = obj.__class__.__name__
+        obj_id = obj.id
+        item = "{}.{}".format(class_name, obj.id)
+        if item in FileStorage.__objects:
+            FileStorage.__objects.pop(item)
