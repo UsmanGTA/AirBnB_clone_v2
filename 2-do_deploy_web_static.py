@@ -28,22 +28,21 @@ def do_deploy(archive_path):
         return False
 
     try:
-        print('Try')
         # Extract the file name from the var 'archive_path'
         archive = archive_path.split('/')[-1]
 
         # Upload, uncompress and delete the archive from the web servers
         put(archive_path, '/tmp/')
-        out_path = '/data/web_static/releases/{}/'.format(archive.split('.')[0])
-        run('mkdir -p {}'.format(out_path))
-        run('tar -xzf /tmp/{} -C {}'.format(archive, out_path))
+        out = '/data/web_static/releases/{}/'.format(archive.split('.')[0])
+        run('mkdir -p {}'.format(out))
+        run('tar -xzf /tmp/{} -C {}'.format(archive, out))
         run('rm -rf /tmp/{}'.format(archive))
-        run('mv {}* {}'.format(out_path + 'web_static/', out_path))
-        run('rm -rf {}'.format(out_path + 'web_static/'))
+        run('mv {}* {}'.format(out + 'web_static/', out))
+        run('rm -rf {}'.format(out + 'web_static/'))
 
         # Del symbolic link 'current' and link extracted folder to current
         run('rm -rf /data/web_static/current')
-        run('ln -s {} /data/web_static/current'.format(out_path))
+        run('ln -s {} /data/web_static/current'.format(out))
 
         # All good, return True
         print('New version deployed!')
