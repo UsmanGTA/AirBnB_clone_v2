@@ -89,7 +89,7 @@ def deploy():
     from os.path import isfile
     try:
         file_path = do_pack()
-        if not isfile(file_path):
+        if not file_path:
             return False
         status = do_deploy(archive_address)
         return status
