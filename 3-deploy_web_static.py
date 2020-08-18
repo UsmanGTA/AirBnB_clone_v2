@@ -31,9 +31,8 @@ def do_pack():
         local('tar -cvzf versions/{} web_static/'.format(file))
         return("versions/{}".format(file))
 
-    except Exception:
+    except:
         return None
-
 
 def do_deploy(archive_path):
     """
