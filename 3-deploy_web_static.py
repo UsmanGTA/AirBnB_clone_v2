@@ -85,8 +85,9 @@ def do_deploy(archive_path):
 def deploy():
     """Deploys code on the server"""
 
+
     file_path = do_pack()
     if not file_path:
         return False
-    status = do_deploy(archive_address)
+    status = do_deploy(file_path)
     return status
