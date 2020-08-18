@@ -23,8 +23,6 @@ def do_pack():
         "web_static_" + "current time" + ".tgz"
         - If the compression fails, None's returned.
     """
-    from fabric.api import local
-
     file = "web_static_" + time.now().strftime("%Y%m%d%H%M%S") + ".tgz"
 
     local('mkdir -p versions')
@@ -87,7 +85,6 @@ def do_deploy(archive_path):
 
 def deploy():
     """Deploys code on the server"""
-    from os.path import isfile
 
     file_path = do_pack()
     if not file_path:
