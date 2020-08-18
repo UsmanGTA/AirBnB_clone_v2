@@ -86,8 +86,11 @@ def do_deploy(archive_path):
 
 def deploy():
     """Deploys code on the server"""
+    from os.path import isfile
     try:
         file_path = do_pack()
+        if not isfile(file_path):
+            return False
         status = do_deploy(archive_address)
         return status
     except:
