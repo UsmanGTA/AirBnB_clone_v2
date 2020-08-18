@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """UsmanJabbar.COM"""
 from fabric.api import env, run, put
-env.hosts = [web01, web02]
+env.hosts = ['35.196.94.233', '54.160.230.10']
+
 
 def do_pack():
     """
@@ -81,6 +82,7 @@ def do_deploy(archive_path):
 
     except:
         return False
+
 
 def deploy():
     """Deploys code on the server"""
