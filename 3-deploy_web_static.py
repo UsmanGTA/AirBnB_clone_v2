@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """UsmanJabbar.COM"""
-from fabric.api import env, run, put
+from fabric.api import env, run, put, local
+from datetime import datetime as time
 env.hosts = ['35.196.94.233', '54.160.230.10']
 
 
@@ -23,7 +24,6 @@ def do_pack():
         - If the compression fails, None's returned.
     """
     from fabric.api import local
-    from datetime import datetime as time
 
     file = "web_static_" + time.now().strftime("%Y%m%d%H%M%S") + ".tgz"
 
@@ -54,6 +54,7 @@ def do_deploy(archive_path):
         returns False
     """
     from os.path import isfile
+
 
     # Check if that file actually exists
     if not isfile(archive_path):
@@ -87,11 +88,9 @@ def do_deploy(archive_path):
 def deploy():
     """Deploys code on the server"""
     from os.path import isfile
-    try:
-        file_path = do_pack()
-        if not file_path:
-            return False
-        status = do_deploy(archive_address)
-        return status
-    except:
+
+    file_path = do_pack()
+    if not file_path:
         return False
+    status = do_deploy(archive_address)
+    return status
