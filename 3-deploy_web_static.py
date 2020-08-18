@@ -31,8 +31,8 @@ def do_pack():
 
     try:
         local('tar -cvzf versions/{} web_static/'.format(file))
-        path = "versions/" + file
-        return path
+        return("versions/{}".format(file))
+
     except Exception:
         return None
 
