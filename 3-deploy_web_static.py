@@ -34,6 +34,7 @@ def do_pack():
     except:
         return None
 
+
 def do_deploy(archive_path):
     """
     -----------------
@@ -51,7 +52,6 @@ def do_deploy(archive_path):
         returns False
     """
     from os.path import isfile
-
 
     # Check if that file actually exists
     if not isfile(archive_path):
@@ -84,7 +84,6 @@ def do_deploy(archive_path):
 
 def deploy():
     """Deploys code on the server"""
-
 
     file_path = do_pack()
     if not file_path:
