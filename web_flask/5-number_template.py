@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Some random docstring"""
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 
@@ -81,5 +81,22 @@ def hello_world_number_int(n):
     """
     return (str(n) + " is a number\n")
 
+
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def hello_world_number_template_int(n):
+    """
+    ------------------------------------------
+    METHOD: HELLO WORLD /number_template/{int}
+    ------------------------------------------
+    Description:
+        Prints out "Number + is a number" if flask hits
+        a ping on 0:5000/number_template/<some_number>
+    Args:
+        None
+    """
+    return render_template('5-number.html',
+                            title='HBNB',
+                            body='Number: {}'.format(n),
+                           )
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000")
