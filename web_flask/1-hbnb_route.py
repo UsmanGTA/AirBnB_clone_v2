@@ -18,6 +18,7 @@ def hello_world_root():
     """
     return("Hello HBNB!\n")
 
+
 @app.route('/hbnb', strict_slashes=False)
 def hello_world_hbnb():
     """
