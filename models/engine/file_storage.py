@@ -16,8 +16,7 @@ class FileStorage:
 
         # If all() does get a class as input
         cls_name = cls.__name__
-        index_of_objects = FileStorage.__objects.keys() # Gets an index of keys
-                                                        # in the object
+        index_of_objects = FileStorage.__objects.keys()
 
         # Take advantage of the index and scan for the class name
         filtered_dict = {}

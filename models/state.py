@@ -6,6 +6,7 @@ from sqlalchemy import Column, String, Integer, ForeignKey
 from models.city import City
 from os import getenv
 
+
 class State(BaseModel, Base):
     """ State class """
     name = ""
