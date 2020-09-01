@@ -95,9 +95,10 @@ def hello_world_number_template_int(n):
         n: integer
     """
     return render_template('5-number.html',
-                            title='HBNB',
-                            body='Number: {}'.format(n),
+                           title='HBNB',
+                           body='Number: {}'.format(n),
                            )
+
 
 @app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
 def hello_world_odd_even_int(n):
@@ -113,8 +114,8 @@ def hello_world_odd_even_int(n):
     """
     odd_even = "odd" if n % 2 != 0 else "even"
     return render_template('6-number_odd_or_even.html',
-                            title='HBNB',
-                            body='Number: {} is {}'.format(n, odd_even),
+                           title='HBNB',
+                           body='Number: {} is {}'.format(n, odd_even),
                            )
 
 
