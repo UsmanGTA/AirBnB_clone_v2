@@ -9,10 +9,9 @@ from os import getenv
 class State(BaseModel, Base):
     """ State class """
     name = ""
-
+    __tablename__ = "states"
 
     if getenv("HBNB_TYPE_STORAGE") == "db":
-        __tablename__ = "states"
         name = Column(String(128),
                       nullable=False)
         cities = relationship(
@@ -27,11 +26,11 @@ class State(BaseModel, Base):
             """Getter for the cities"""
             from models.engine.file_storage import FileStorage
 
-            objects = FileStorage.__objects
+            objects = FileStorage.all(City)
 
             buffer = []
             for keys, cities in objects.items():
-                if cities.state_id == self.id:
-                    buffer += cities
+                if 'City' in keys and cities.state_id == self.id:
+                    buffer.append(cities)
 
             return buffer
