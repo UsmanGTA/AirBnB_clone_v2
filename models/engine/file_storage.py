@@ -11,7 +11,7 @@ class FileStorage:
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
         # If all() doesn't get an input
-        if cls == None:
+        if cls is None:
             return FileStorage.__objects
 
         # If all() does get a class as input
