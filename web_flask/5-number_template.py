@@ -95,8 +95,8 @@ def hello_world_number_template_int(n):
         None
     """
     return render_template('5-number.html',
-                            title='HBNB',
-                            body='Number: {}'.format(n),
+                           title='HBNB',
+                           body='Number: {}'.format(n),
                            )
 
 
