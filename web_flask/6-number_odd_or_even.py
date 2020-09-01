@@ -16,7 +16,7 @@ def hello_world_root():
     Args:
         None
     """
-    return("Hello HBNB!\n")
+    return("Hello HBNB!")
 
 
 @app.route('/hbnb', strict_slashes=False)
@@ -31,7 +31,7 @@ def hello_world_hbnb():
     Args:
         None
     """
-    return("HBNB\n")
+    return("HBNB")
 
 
 @app.route('/c/<text>', strict_slashes=False)
@@ -47,7 +47,7 @@ def hello_world_c_text(text=""):
         text: empty (by default) / custom text to append
     """
     text = text.replace('_', ' ')
-    return ("C " + text + '\n')
+    return ("C " + text)
 
 
 @app.route('/python', strict_slashes=False)
@@ -64,7 +64,7 @@ def hello_world_python_text(text="is_cool"):
         None
     """
     text = text.replace('_', ' ')
-    return ("Python " + text + '\n')
+    return ("Python " + text)
 
 
 @app.route('/number/<int:n>', strict_slashes=False)
@@ -79,7 +79,7 @@ def hello_world_number_int(n):
     Args:
         n: integer
     """
-    return (str(n) + " is a number\n")
+    return (str(n) + " is a number")
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)

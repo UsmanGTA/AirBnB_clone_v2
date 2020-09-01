@@ -16,7 +16,7 @@ def hello_world_root():
     Args:
         None
     """
-    return("Hello HBNB!\n")
+    return("Hello HBNB!")
 
 
 @app.route('/hbnb', strict_slashes=False)
@@ -31,7 +31,7 @@ def hello_world_hbnb():
     Args:
         None
     """
-    return("HBNB\n")
+    return("HBNB")
 
 
 @app.route('/c/<text>', strict_slashes=False)
@@ -47,7 +47,7 @@ def hello_world_c_text(text=""):
         None
     """
     text = text.replace('_', ' ')
-    return ("C " + text + '\n')
+    return ("C " + text)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000")
