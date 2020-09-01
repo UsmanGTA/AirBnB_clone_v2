@@ -70,3 +70,7 @@ class FileStorage:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
             if key in FileStorage.__objects:
                 FileStorage.__objects.pop(key)
+
+    def close():
+        """Reloads all of the json objects"""
+        self.reload()
