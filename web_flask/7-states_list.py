@@ -24,7 +24,7 @@ def hello_world_states_list():
     Args:
         n: integer
     """
-    objects = storage.all(State)
+    objects = storage.all(State).values()
     return render_template('7-states_list.html',
                            title='HBNB',
                            objects=objects
