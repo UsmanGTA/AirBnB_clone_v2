@@ -11,6 +11,7 @@ def teardown(self):
     """SHUTS THE SESSION DOWN"""
     storage.close()
 
+
 @app.route('/states_list', strict_slashes=False)
 def hello_world_states_list():
     """
